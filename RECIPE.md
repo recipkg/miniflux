@@ -5,7 +5,7 @@ format = "recipkg/1"
 
 [package]
 name = "miniflux"
-version = "0.1.6"
+version = "0.1.7"
 kind = "software"
 description = "Miniflux 阅读器行为与接口的重建配方；当前仍在提取。"
 entry = "BUILD_PROMPT.md"
@@ -17,7 +17,7 @@ subdir = "recipes/software-quality"
 
 [dependencies.design]
 git = "https://github.com/recipkg/design-directions.git"
-rev = "2546cea48637585ec2e83b297b12b08548f9d15f"
+rev = "6fdba350d1effa2d50dc0185095bb91ca7a699ee"
 ```
 
 观察来源：[Miniflux](https://github.com/miniflux/v2)，提交 `3945f3daa0a90040f761d79a5f62a678fe86ba4e`；上游 README 标明 Apache 2.0。此提交的默认开发版本字符串为 `2.3.x-dev`，不把它当成已发布版本。配方仅部分提取，不能宣称完整重建；见 `COVERAGE.md`。
