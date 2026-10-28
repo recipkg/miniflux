@@ -14,7 +14,7 @@
 
 ## API 初步证据
 
-`internal/api/api.go` 注册了 `GET /v1/me`、`GET|POST /v1/categories`、`GET|POST /v1/feeds`、`PUT /v1/feeds/{feedID}/refresh`、`GET /v1/entries`、`PUT /v1/entries/{entryID}/bookmark`、`GET /v1/export`、`POST /v1/import` 等方法与路径。已审阅的分类处理器对 JSON 解析/校验错误返回客户端错误，找不到指定分类返回 404。分类、认证、订阅与文章状态的已实测字段和状态码见 `API-OBSERVED.md`；其他分页、排序、幂等、权限和状态码尚未逐项核实，不要根据路径猜测。
+全部 51 条注册方法及路径见 `API-ROUTES.md`，但清单不等于完整合同。分类、认证、账户权限、订阅与文章状态的已实测字段和状态码见 `API-OBSERVED.md`；文章导入、查询、排序和分页的源码及样本边界见 `API-ENTRIES.md`。其他过滤、幂等、权限和状态码尚未逐项核实，不要根据路径猜测。
 
 ## 依赖使用合同
 

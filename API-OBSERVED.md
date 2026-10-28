@@ -7,6 +7,9 @@
 - 在本实验中本地 Basic 认证启用：`GET /v1/categories` 无凭据、`GET /v1/me` 错误密码均返回 401，JSON 错误对象带 `error_message`；正确 Basic 返回 200 和当前用户 JSON。
 - 已认证用户 `POST /v1/api-keys`，JSON `{"description":"fixture key"}`，返回 201 及 `id`、`token` 等字段；以 `X-Auth-Token` 请求 `/v1/me` 返回该用户。不存在的 token 返回 401；`DELETE /v1/api-keys/{id}` 返回 204 后该 token 返回 401。不要打印、暴露或在配方中存真实密钥。
 - 管理员 `POST /v1/users`，JSON 包含 `username`、`password`、`is_admin:false`，本样本返回 201。另一账户 `GET /v1/categories` 只列出其分类；对属于首个账户的分类 ID 执行 PUT 返回 404。其他角色、接口和认证配置未完整实测，不能据此概括全部权限。
+- 新建普通用户在本样本调用 `GET /v1/users` 或 `GET /v1/users/{自身ID}`、创建账户、删除账户均返回 403；读取自身用 `GET /v1/me`。普通用户更新自身语言返回 201，将自己设为管理员返回 400，更新管理员账户返回 403。管理员删除自己返回 400。
+- `PUT /v1/users/{id}/mark-all-as-read` 只允许当前认证账户的自身 ID：普通用户针对管理员以及管理员针对另一用户都在样本中得到 403；普通用户针对自身返回 204。这个限制即使对管理员也适用。
+- 若同时提供凭据，API key 优先于 Basic：无效 key 加有效 Basic 返回 401，不回退；有效的管理员 key 加普通用户的错误 Basic 返回管理员身份。普通用户删除管理员 key 返回 404，原 key 仍有效；所有者删除后该 key 不再有效。不要打印或保存真实 token。
 
 ## 分类
 
