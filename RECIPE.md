@@ -5,7 +5,7 @@ format = "recipkg/1"
 
 [package]
 name = "miniflux"
-version = "0.1.1"
+version = "0.1.2"
 kind = "software"
 description = "Miniflux 阅读器行为与接口的重建配方；当前仍在提取。"
 entry = "BUILD_PROMPT.md"

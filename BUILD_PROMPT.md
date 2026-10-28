@@ -14,7 +14,7 @@
 
 ## API 初步证据
 
-`internal/api/api.go` 注册了 `GET /v1/me`、`GET|POST /v1/categories`、`GET|POST /v1/feeds`、`PUT /v1/feeds/{feedID}/refresh`、`GET /v1/entries`、`PUT /v1/entries/{entryID}/bookmark`、`GET /v1/export`、`POST /v1/import` 等方法与路径。已审阅的分类处理器对 JSON 解析/校验错误返回客户端错误，找不到指定分类返回 404。请求字段、返回 JSON、分页、排序、幂等、权限和其他状态码尚未逐项核实；不要根据路径猜测接口细节。
+`internal/api/api.go` 注册了 `GET /v1/me`、`GET|POST /v1/categories`、`GET|POST /v1/feeds`、`PUT /v1/feeds/{feedID}/refresh`、`GET /v1/entries`、`PUT /v1/entries/{entryID}/bookmark`、`GET /v1/export`、`POST /v1/import` 等方法与路径。已审阅的分类处理器对 JSON 解析/校验错误返回客户端错误，找不到指定分类返回 404。分类、认证、订阅与文章状态的已实测字段和状态码见 `API-OBSERVED.md`；其他分页、排序、幂等、权限和状态码尚未逐项核实，不要根据路径猜测。
 
 ## 依赖使用合同
 
