@@ -10,3 +10,7 @@
 ## 已实测的 API 场景
 
 固定提交和测试前提、请求字段、预期 HTTP 状态与数据隔离范围见 `API-OBSERVED.md`。使用独立测试账户、临时 PostgreSQL 和仅监听本机的 RSS fixture；黑盒样本仓库 `recipkg/standard-library-verification` 可通过 `RECIPKG_TEST_MINIFLUX` 指定待验收程序运行。断言失败时保留完整实际结果和环境差异，不能将上游测试结果用于标记重建通过。
+
+## 已实测的 OPML 场景
+
+按 `OPML-OBSERVED.md` 在两个隔离账户中导入、导出和重新导入同一份 OPML，检查分组、重复 URL 及跨账户数据；同时检验无效 URL 导致的部分成功和格式错误。上述黑盒仓库含可运行断言，样本并不覆盖所有 OPML 属性、接口错误或生产配置。
